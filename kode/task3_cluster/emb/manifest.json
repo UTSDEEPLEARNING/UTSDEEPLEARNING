@@ -1,0 +1,62 @@
+{
+  "urutan_baris": "sama dengan clustering.npz dan clustering_meta.csv",
+  "n": 36000,
+  "tipe_simpan": "float16",
+  "embedding": {
+    "pca_gambar": [
+      36000,
+      64
+    ],
+    "pca_spektrum": [
+      36000,
+      32
+    ],
+    "pca_fusi": [
+      36000,
+      96
+    ],
+    "ae_gambar": [
+      36000,
+      64
+    ],
+    "simclr_gambar": [
+      36000,
+      64
+    ],
+    "ae_spektrum": [
+      36000,
+      32
+    ],
+    "fusi_ae_concat": [
+      36000,
+      96
+    ],
+    "fusi_simclr_concat": [
+      36000,
+      96
+    ],
+    "fusi_gabungan": [
+      36000,
+      64
+    ]
+  },
+  "seed": 0,
+  "normalisasi_per_mikroskop": true,
+  "hiperparameter": {
+    "D_G": 64,
+    "D_S": 32,
+    "D_F": 64,
+    "EP_AE_G": 40,
+    "EP_SIMCLR": 60,
+    "EP_AE_S": 60,
+    "EP_JOINT": 40,
+    "BS": 256,
+    "BS_SIMCLR": 512
+  },
+  "versi": {
+    "python": "3.13.16",
+    "torch": "2.14.1+cu130",
+    "numpy": "2.4.6",
+    "sklearn": "1.6.1"
+  }
+}

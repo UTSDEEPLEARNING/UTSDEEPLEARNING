@@ -1,0 +1,13 @@
+**1. Data.** Terdapat 36000 sampel dengan citra 64×64 dan spektrum 128 dimensi. Jumlah per mikroskop: M1: 21636, M2: 14364. Nilai spektrum yang hilang atau tidak hingga: 0 sel (diisi median per fitur: 0). ID sampel unik.
+
+**2. Efek mikroskop.** Akurasi seimbang menebak mikroskop dari fitur mentah dengan normalisasi global: gambar 0,79, spektrum 0,49; dengan normalisasi per mikroskop: gambar 0,50, spektrum 0,49 (0,5 berarti tidak terbaca). Karena mikroskop dapat ditebak dari fitur mentah, normalisasi dilakukan per mikroskop. Asumsinya, perbedaan antar mikroskop adalah efek alat dan bukan perbedaan komposisi material; bila asumsi ini keliru, sebagian struktur nyata ikut terhapus.
+
+**3. Representasi.** Model yang dilatih tanpa label: ae_gambar (validasi 0,385), ae_spektrum (validasi 0,039), ae_gabungan (validasi 0,574), dan SimCLR untuk gambar. Untuk spektrum, galat rekonstruksi semua sampel 0,032 dibanding 0,074 untuk PCA berdimensi sama.
+
+**4. Pemeriksaan tanpa label.** Akurasi seimbang menebak mikroskop paling rendah pada pca_spektrum (0,49). Silhouette K-Means tertinggi pada simclr_gambar (0,36 pada k = 2); angka ini hanya petunjuk karena geometri tiap representasi berbeda. Representasi yang mikroskopnya masih mudah ditebak (akurasi seimbang di atas 0,60): simclr_gambar, fusi_simclr_concat.
+
+**5. Kesepakatan antar modalitas.** Irisan 10 tetangga terdekat: pca_gambar dengan pca_spektrum: 0,002 (kebetulan 0,002); ae_gambar dengan ae_spektrum: 0,004 (kebetulan 0,002); simclr_gambar dengan ae_spektrum: 0,006 (kebetulan 0,002). Irisan hanya sedikit di atas nilai kebetulan pada sedikitnya satu pasangan, sehingga bukti bahwa kedua modalitas memuat struktur bersama lemah; ini perlu diperhatikan pada tahap pengelompokan.
+
+**6. Keterbatasan.** Tidak ada label, sehingga representasi hanya diperiksa lewat petunjuk tidak langsung; pemilihan akhir dilakukan pada tahap pengelompokan. Satu seed dan hiperparameter belum disetel. SimCLR mengandaikan bahwa rotasi kecil dan cermin tidak mengubah identitas material. Normalisasi per mikroskop mengandaikan bahwa perbedaan alat dapat dipisahkan dari perbedaan material.
+
+**7. Serah-terima.** Embedding `float16` berurutan sama dengan `clustering.npz` tersedia di `kode/task3_cluster/emb/` beserta `manifest.json`. Tahap berikutnya membandingkan K-Means, GMM, dan agglomerative pada semua representasi, memilih jumlah klaster dengan beberapa kriteria, dan menilai kemandirian klaster terhadap mikroskop.
