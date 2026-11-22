@@ -1,0 +1,7 @@
+**1. Pola spektrum.** 9 klaster pada `cluster.csv` hanya memiliki **4 pola spektrum yang berbeda** pada ambang korelasi 0.98 (celah terbesar antar penggabungan menunjuk 4 pola). Pemetaan klaster ke grup pola: {0: 1, 1: 0, 2: 2, 3: 0, 4: 1, 5: 3, 6: 3, 7: 1, 8: 2}.
+
+**2. Mikroskop di dalam grup.** Untuk grup yang terdiri atas lebih dari satu klaster, NMI antara pembagian di dalam grup dan mikroskop: grup 0 (klaster [1, 3], NMI pembagian-mikroskop 0,028), grup 1 (klaster [0, 4, 7], NMI pembagian-mikroskop 0,118), grup 2 (klaster [2, 8], NMI pembagian-mikroskop 0,000), grup 3 (klaster [5, 6], NMI pembagian-mikroskop 0,252). Nilai yang tinggi berarti pembagian di dalam grup itu sebagian besar mengikuti alat.
+
+**3. Perbandingan.** `cluster.csv` (k = 9): silhouette pada fusi_simclr_concat 0,156, pada pca_spektrum -0,003, NMI mikroskop 0,049. Digabung menurut pola spektrum (k = 4): 0,143, 0,150, NMI mikroskop 0,000. ARI antara keduanya 0,592 (NMI 0,787).
+
+**4. Yang tidak dapat disimpulkan.** Seluruh ukuran bersifat internal. Pola spektrum yang sama pada beberapa klaster menunjukkan bahwa klaster-klaster itu tidak dibedakan oleh komposisi, tetapi tidak membuktikan bahwa tipe material sebenarnya berjumlah sama dengan jumlah pola: dua tipe material dapat saja berkomposisi sama dan berbeda pada mikrostruktur. Kandidat hasil penggabungan dan `cluster.csv` sama-sama tidak dapat dinilai terhadap acuan tersembunyi; pilihan di antara keduanya adalah keputusan yang diambil dari bukti tidak langsung dan dilaporkan sebagai keterbatasan.
