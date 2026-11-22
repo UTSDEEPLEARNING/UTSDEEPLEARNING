@@ -1,0 +1,44 @@
+{
+  "seed": 0,
+  "n_batch": 64,
+  "steps": 300,
+  "lr": 0.001,
+  "hasil": [
+    {
+      "model": "gambar saja | label asli",
+      "kerugian_awal": 1.9575313329696655,
+      "kerugian_akhir": 0.0006174001609906554,
+      "akurasi_batch": 1.0
+    },
+    {
+      "model": "gambar saja | label diacak",
+      "kerugian_awal": 2.013745069503784,
+      "kerugian_akhir": 0.0006352342898026109,
+      "akurasi_batch": 1.0
+    },
+    {
+      "model": "sensor saja | label asli",
+      "kerugian_awal": 2.3031630516052246,
+      "kerugian_akhir": 0.02315075322985649,
+      "akurasi_batch": 0.984375
+    },
+    {
+      "model": "sensor saja | label diacak",
+      "kerugian_awal": 2.2745416164398193,
+      "kerugian_akhir": 0.02316421829164028,
+      "akurasi_batch": 0.984375
+    },
+    {
+      "model": "fusi fitur | label asli",
+      "kerugian_awal": 2.073920488357544,
+      "kerugian_akhir": 0.00011129226186312735,
+      "akurasi_batch": 1.0
+    },
+    {
+      "model": "fusi fitur | label diacak",
+      "kerugian_awal": 2.0452370643615723,
+      "kerugian_akhir": 0.00012608028191607445,
+      "akurasi_batch": 1.0
+    }
+  ]
+}
