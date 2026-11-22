@@ -1,0 +1,94 @@
+{
+  "k_umum": 4,
+  "representasi_terbaik": "pca_spektrum",
+  "tiga_teratas": [
+    {
+      "representasi": "pca_spektrum",
+      "k": 4,
+      "pusat": "pusat_kmeans_pca_spektrum_k4.npy",
+      "label": "label_kmeans_pca_spektrum_k4.npy"
+    },
+    {
+      "representasi": "pca_gambar",
+      "k": 4,
+      "pusat": "pusat_kmeans_pca_gambar_k4.npy",
+      "label": "label_kmeans_pca_gambar_k4.npy"
+    },
+    {
+      "representasi": "fusi_gabungan",
+      "k": 4,
+      "pusat": "pusat_kmeans_fusi_gabungan_k4.npy",
+      "label": "label_kmeans_fusi_gabungan_k4.npy"
+    }
+  ],
+  "k_pilihan_per_representasi": {
+    "pca_gambar": {
+      "silhouette": 2,
+      "dbi": 2,
+      "bic": 10,
+      "kestabilan": 7,
+      "konsensus": 4
+    },
+    "pca_spektrum": {
+      "silhouette": 2,
+      "dbi": 2,
+      "bic": 12,
+      "kestabilan": 10,
+      "konsensus": 6
+    },
+    "pca_fusi": {
+      "silhouette": 2,
+      "dbi": 2,
+      "bic": 12,
+      "kestabilan": 7,
+      "konsensus": 4
+    },
+    "ae_gambar": {
+      "silhouette": 4,
+      "dbi": 4,
+      "bic": 12,
+      "kestabilan": 9,
+      "konsensus": 6
+    },
+    "simclr_gambar": {
+      "silhouette": 2,
+      "dbi": 6,
+      "bic": 12,
+      "kestabilan": 11,
+      "konsensus": 8
+    },
+    "ae_spektrum": {
+      "silhouette": 6,
+      "dbi": 8,
+      "bic": 12,
+      "kestabilan": 8,
+      "konsensus": 8
+    },
+    "fusi_ae_concat": {
+      "silhouette": 2,
+      "dbi": 2,
+      "bic": 12,
+      "kestabilan": 2,
+      "konsensus": 2
+    },
+    "fusi_simclr_concat": {
+      "silhouette": 2,
+      "dbi": 7,
+      "bic": 12,
+      "kestabilan": 12,
+      "konsensus": 10
+    },
+    "fusi_gabungan": {
+      "silhouette": 4,
+      "dbi": 6,
+      "bic": 12,
+      "kestabilan": 9,
+      "konsensus": 8
+    }
+  },
+  "rentang_k": [
+    2,
+    12
+  ],
+  "seed": 0
+}
