@@ -1,0 +1,204 @@
+{
+  "info": {
+    "data": {
+      "n": 36000,
+      "bentuk_gambar": [
+        36000,
+        64,
+        64
+      ],
+      "bentuk_spektrum": [
+        36000,
+        128
+      ],
+      "dtype_gambar": "uint8",
+      "gambar_min": 0,
+      "gambar_maks": 255,
+      "spektrum_nan": 0,
+      "id_unik": true,
+      "jumlah_mikroskop": {
+        "M1": 21636,
+        "M2": 14364
+      },
+      "per_mikroskop": {
+        "M1": {
+          "gambar_rerata": 127.79515838623047,
+          "gambar_simpangan": 23.714216232299805,
+          "spektrum_rerata": 0.4491841573433081,
+          "spektrum_simpangan": 0.4063338545539745
+        },
+        "M2": {
+          "gambar_rerata": 146.06826782226562,
+          "gambar_simpangan": 23.221193313598633,
+          "spektrum_rerata": 0.44731706255017667,
+          "spektrum_simpangan": 0.4077401883653697
+        }
+      }
+    },
+    "spektrum_diisi": 0,
+    "mikroskop": {
+      "tabel": [
+        {
+          "normalisasi": "global",
+          "modalitas": "gambar",
+          "akurasi": 0.7844,
+          "akurasi_seimbang": 0.7862020343713545,
+          "mayoritas": 0.6014666666666667
+        },
+        {
+          "normalisasi": "global",
+          "modalitas": "spektrum",
+          "akurasi": 0.49406666666666665,
+          "akurasi_seimbang": 0.49021378469002463,
+          "mayoritas": 0.6014666666666667
+        },
+        {
+          "normalisasi": "per mikroskop",
+          "modalitas": "gambar",
+          "akurasi": 0.5063333333333333,
+          "akurasi_seimbang": 0.5049827087112214,
+          "mayoritas": 0.6014666666666667
+        },
+        {
+          "normalisasi": "per mikroskop",
+          "modalitas": "spektrum",
+          "akurasi": 0.4932,
+          "akurasi_seimbang": 0.4893240040200606,
+          "mayoritas": 0.6014666666666667
+        }
+      ],
+      "per_mikroskop_dipakai": true
+    },
+    "tabel": [
+      {
+        "representasi": "pca_gambar",
+        "dim": 64,
+        "mikroskop_akurasi": 0.5068666666666667,
+        "mikroskop_seimbang": 0.5039021932113604,
+        "mayoritas": 0.6014666666666667,
+        "k_terbaik": 2,
+        "silhouette": 0.31894245743751526
+      },
+      {
+        "representasi": "pca_spektrum",
+        "dim": 32,
+        "mikroskop_akurasi": 0.4932,
+        "mikroskop_seimbang": 0.4893240040200606,
+        "mayoritas": 0.6014666666666667,
+        "k_terbaik": 2,
+        "silhouette": 0.25958624482154846
+      },
+      {
+        "representasi": "pca_fusi",
+        "dim": 96,
+        "mikroskop_akurasi": 0.48993333333333333,
+        "mikroskop_seimbang": 0.49363518224919734,
+        "mayoritas": 0.6014666666666667,
+        "k_terbaik": 3,
+        "silhouette": 0.10467822104692459
+      },
+      {
+        "representasi": "ae_gambar",
+        "dim": 64,
+        "mikroskop_akurasi": 0.49546666666666667,
+        "mikroskop_seimbang": 0.4962878741300678,
+        "mayoritas": 0.6014666666666667,
+        "k_terbaik": 4,
+        "silhouette": 0.12175346910953522
+      },
+      {
+        "representasi": "simclr_gambar",
+        "dim": 64,
+        "mikroskop_akurasi": 0.9442666666666667,
+        "mikroskop_seimbang": 0.9441022535968173,
+        "mayoritas": 0.6014666666666667,
+        "k_terbaik": 2,
+        "silhouette": 0.3611815571784973
+      },
+      {
+        "representasi": "ae_spektrum",
+        "dim": 32,
+        "mikroskop_akurasi": 0.4958,
+        "mikroskop_seimbang": 0.4935172222037221,
+        "mayoritas": 0.6014666666666667,
+        "k_terbaik": 7,
+        "silhouette": 0.13207471370697021
+      },
+      {
+        "representasi": "fusi_ae_concat",
+        "dim": 96,
+        "mikroskop_akurasi": 0.49493333333333334,
+        "mikroskop_seimbang": 0.49381267855780064,
+        "mayoritas": 0.6014666666666667,
+        "k_terbaik": 2,
+        "silhouette": 0.0960778221487999
+      },
+      {
+        "representasi": "fusi_simclr_concat",
+        "dim": 96,
+        "mikroskop_akurasi": 0.9437333333333333,
+        "mikroskop_seimbang": 0.9435460132063336,
+        "mayoritas": 0.6014666666666667,
+        "k_terbaik": 2,
+        "silhouette": 0.2093058079481125
+      },
+      {
+        "representasi": "fusi_gabungan",
+        "dim": 64,
+        "mikroskop_akurasi": 0.5382666666666667,
+        "mikroskop_seimbang": 0.545723553420845,
+        "mayoritas": 0.6014666666666667,
+        "k_terbaik": 5,
+        "silhouette": 0.1459657996892929
+      }
+    ],
+    "silang": [
+      {
+        "gambar": "pca_gambar",
+        "spektrum": "pca_spektrum",
+        "tumpang": 0.0020833333333333333,
+        "kebetulan": 0.001666944490748458
+      },
+      {
+        "gambar": "ae_gambar",
+        "spektrum": "ae_spektrum",
+        "tumpang": 0.004166666666666667,
+        "kebetulan": 0.001666944490748458
+      },
+      {
+        "gambar": "simclr_gambar",
+        "spektrum": "ae_spektrum",
+        "tumpang": 0.006450000000000001,
+        "kebetulan": 0.001666944490748458
+      }
+    ]
+  },
+  "hasil": {
+    "ae_gambar": {
+      "loss_latih": 0.3505940546119024,
+      "loss_val": 0.38536427170038223,
+      "dim": 64,
+      "waktu_dtk": 540.0075302124023
+    },
+    "simclr_gambar": {
+      "loss_latih": 2.5078521569569907,
+      "loss_val": 3.019646108150482,
+      "dim": 64,
+      "waktu_dtk": 759.5799307823181
+    },
+    "ae_spektrum": {
+      "loss_latih": 0.0343980063639936,
+      "loss_val": 0.03870541229844093,
+      "dim": 32,
+      "waktu_dtk": 16.904467821121216,
+      "mse_pca_sama_dim": 0.07352643460035324,
+      "mse_rekonstruksi_semua": 0.03241291642189026
+    },
+    "ae_gabungan": {
+      "loss_latih": 0.7317305964136881,
+      "loss_val": 0.5744268596172333,
+      "dim": 64,
+      "waktu_dtk": 536.5705614089966
+    }
+  }
+}
