@@ -134,3 +134,33 @@ def peringkat_k_tetap(df):
     r = pd.DataFrame({'silhouette': df.silhouette.rank(ascending=False), 'dbi': df.dbi.rank(ascending=True),
                       'kestabilan': df.kestabilan.rank(ascending=False), 'seimbang': df.seimbang.rank(ascending=False)}, index=df.index)
     return r.mean(1)
+
+
+def ukuran_label(emb, lab, mik, refs_g, refs_s, lab_dasar=None, seed=0, n_sil=8000):
+    """Ukuran mutu untuk label sembarang (K-Means, GMM, DEC, ...) pada ruang embedding asal."""
+    lab = np.asarray(lab)
+    rng = np.random.RandomState(seed)
+    isub = rng.choice(len(emb), min(n_sil, len(emb)), replace=False)
+    ada = len(np.unique(lab[isub])) > 1
+    u = uji_mikroskop(lab, mik)
+    g, s = kontribusi_modalitas(lab, refs_g, refs_s)
+    out = dict(k_efektif=int(len(np.unique(lab))), ukuran_min=float(np.bincount(lab).min() / len(lab)),
+               silhouette=float(silhouette_score(emb[isub], lab[isub])) if ada else float('nan'),
+               dbi=float(davies_bouldin_score(emb, lab)) if len(np.unique(lab)) > 1 else float('nan'),
+               mik_nmi=u['nmi'], mik_ari=u['ari'], nmi_gambar=g, nmi_spektrum=s, seimbang=min(g, s))
+    if lab_dasar is not None:
+        out['ari_vs_kmeans'] = float(adjusted_rand_score(lab, lab_dasar))
+    return out
+
+
+def kestabilan_label(daftar_label):
+    """Rerata ARI berpasangan antar beberapa pelabelan, dan indeks pelabelan paling 'tengah' (medoid)."""
+    n = len(daftar_label)
+    if n < 2:
+        return float('nan'), 0
+    M = np.eye(n)
+    for i in range(n):
+        for j in range(i + 1, n):
+            M[i, j] = M[j, i] = adjusted_rand_score(daftar_label[i], daftar_label[j])
+    rata = (M.sum(1) - 1) / (n - 1)
+    return float(((M.sum() - n) / (n * (n - 1)))), int(np.argmax(rata))
