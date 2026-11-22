@@ -1,0 +1,365 @@
+{
+  "info": {
+    "representasi": [
+      "pca_gambar",
+      "pca_spektrum",
+      "pca_fusi",
+      "ae_gambar",
+      "simclr_gambar",
+      "ae_spektrum",
+      "fusi_ae_concat",
+      "fusi_simclr_concat",
+      "fusi_gabungan"
+    ],
+    "normalisasi_per_mikroskop": true,
+    "bocor": [
+      "simclr_gambar",
+      "fusi_simclr_concat"
+    ],
+    "k_pilihan": {
+      "pca_gambar": {
+        "silhouette": 2,
+        "dbi": 2,
+        "bic": 10,
+        "kestabilan": 7,
+        "konsensus": 4
+      },
+      "pca_spektrum": {
+        "silhouette": 2,
+        "dbi": 2,
+        "bic": 12,
+        "kestabilan": 10,
+        "konsensus": 6
+      },
+      "pca_fusi": {
+        "silhouette": 2,
+        "dbi": 2,
+        "bic": 12,
+        "kestabilan": 7,
+        "konsensus": 4
+      },
+      "ae_gambar": {
+        "silhouette": 4,
+        "dbi": 4,
+        "bic": 12,
+        "kestabilan": 9,
+        "konsensus": 6
+      },
+      "simclr_gambar": {
+        "silhouette": 2,
+        "dbi": 6,
+        "bic": 12,
+        "kestabilan": 11,
+        "konsensus": 8
+      },
+      "ae_spektrum": {
+        "silhouette": 6,
+        "dbi": 8,
+        "bic": 12,
+        "kestabilan": 8,
+        "konsensus": 8
+      },
+      "fusi_ae_concat": {
+        "silhouette": 2,
+        "dbi": 2,
+        "bic": 12,
+        "kestabilan": 2,
+        "konsensus": 2
+      },
+      "fusi_simclr_concat": {
+        "silhouette": 2,
+        "dbi": 7,
+        "bic": 12,
+        "kestabilan": 12,
+        "konsensus": 10
+      },
+      "fusi_gabungan": {
+        "silhouette": 4,
+        "dbi": 6,
+        "bic": 12,
+        "kestabilan": 9,
+        "konsensus": 8
+      }
+    },
+    "k_umum": 4,
+    "perbandingan": [
+      {
+        "representasi": "pca_spektrum",
+        "silhouette": 0.16704559326171875,
+        "dbi": 1.7816272964026258,
+        "kestabilan": 0.8340738403345513,
+        "mik_nmi": 5.494368234621241e-06,
+        "mik_ari": -2.2176537030268375e-05,
+        "mik_kemurnian": 0.601,
+        "ukuran_min": 0.23869444444444443,
+        "peringkat": 3.0
+      },
+      {
+        "representasi": "pca_gambar",
+        "silhouette": 0.17835001647472382,
+        "dbi": 1.5660262565314327,
+        "kestabilan": 0.8637746307600102,
+        "mik_nmi": 0.0005269313997406156,
+        "mik_ari": -0.0015585737269995404,
+        "mik_kemurnian": 0.601,
+        "ukuran_min": 0.15727777777777777,
+        "peringkat": 3.5
+      },
+      {
+        "representasi": "simclr_gambar",
+        "silhouette": 0.2941294312477112,
+        "dbi": 1.2834435496674745,
+        "kestabilan": 0.7615664430224977,
+        "mik_nmi": 0.012199309120625071,
+        "mik_ari": 0.0051022234980568956,
+        "mik_kemurnian": 0.601,
+        "ukuran_min": 0.10055555555555555,
+        "peringkat": 4.25
+      },
+      {
+        "representasi": "fusi_gabungan",
+        "silhouette": 0.1506166011095047,
+        "dbi": 2.2285003096752494,
+        "kestabilan": 0.8512955727391184,
+        "mik_nmi": 3.836612144455333e-05,
+        "mik_ari": -1.813219919031405e-05,
+        "mik_kemurnian": 0.601,
+        "ukuran_min": 0.23955555555555555,
+        "peringkat": 4.5
+      },
+      {
+        "representasi": "ae_gambar",
+        "silhouette": 0.11890699714422226,
+        "dbi": 2.2769380296248545,
+        "kestabilan": 0.9663588421071511,
+        "mik_nmi": 7.459573907201732e-05,
+        "mik_ari": -0.0008547543108222758,
+        "mik_kemurnian": 0.601,
+        "ukuran_min": 0.12941666666666668,
+        "peringkat": 4.75
+      },
+      {
+        "representasi": "pca_fusi",
+        "silhouette": -0.05140714347362518,
+        "dbi": 5.971280010204043,
+        "kestabilan": 0.873017187997406,
+        "mik_nmi": 3.451153765129576e-05,
+        "mik_ari": -2.5692670469609554e-05,
+        "mik_kemurnian": 0.601,
+        "ukuran_min": 0.23952777777777778,
+        "peringkat": 5.75
+      },
+      {
+        "representasi": "fusi_simclr_concat",
+        "silhouette": 0.16328474879264832,
+        "dbi": 1.9068131105890176,
+        "kestabilan": 0.6891985897744327,
+        "mik_nmi": 0.0040748706375360695,
+        "mik_ari": -0.0017504002702720804,
+        "mik_kemurnian": 0.601,
+        "ukuran_min": 0.10116666666666667,
+        "peringkat": 5.75
+      },
+      {
+        "representasi": "ae_spektrum",
+        "silhouette": 0.1068028062582016,
+        "dbi": 2.2897721938798967,
+        "kestabilan": 0.3874998671119771,
+        "mik_nmi": 1.2486488355927902e-05,
+        "mik_ari": 1.5707405860484758e-06,
+        "mik_kemurnian": 0.601,
+        "ukuran_min": 0.07375,
+        "peringkat": 6.25
+      },
+      {
+        "representasi": "fusi_ae_concat",
+        "silhouette": 0.058300577104091644,
+        "dbi": 3.2962192956275587,
+        "kestabilan": 0.5146900604661431,
+        "mik_nmi": 5.48086427573179e-05,
+        "mik_ari": -0.00035810039988470096,
+        "mik_kemurnian": 0.601,
+        "ukuran_min": 0.06402777777777778,
+        "peringkat": 7.25
+      }
+    ],
+    "modalitas": {
+      "pca_gambar vs pca_spektrum": [
+        {
+          "k": 2,
+          "ari": 0.0,
+          "nmi": 0.0,
+          "ari_acak": -0.0
+        },
+        {
+          "k": 3,
+          "ari": 0.0004,
+          "nmi": 0.0001,
+          "ari_acak": -0.0002
+        },
+        {
+          "k": 4,
+          "ari": -0.0,
+          "nmi": 0.0001,
+          "ari_acak": -0.0001
+        },
+        {
+          "k": 5,
+          "ari": -0.0002,
+          "nmi": 0.0003,
+          "ari_acak": 0.0004
+        },
+        {
+          "k": 6,
+          "ari": -0.0,
+          "nmi": 0.0004,
+          "ari_acak": 0.0
+        },
+        {
+          "k": 7,
+          "ari": -0.0,
+          "nmi": 0.0005,
+          "ari_acak": 0.0001
+        },
+        {
+          "k": 8,
+          "ari": 0.0001,
+          "nmi": 0.0005,
+          "ari_acak": 0.0
+        }
+      ],
+      "ae_gambar vs ae_spektrum": [
+        {
+          "k": 2,
+          "ari": 0.0,
+          "nmi": 0.0,
+          "ari_acak": -0.0
+        },
+        {
+          "k": 3,
+          "ari": 0.0002,
+          "nmi": 0.0009,
+          "ari_acak": -0.0001
+        },
+        {
+          "k": 4,
+          "ari": 0.0272,
+          "nmi": 0.0571,
+          "ari_acak": -0.0005
+        },
+        {
+          "k": 5,
+          "ari": 0.1191,
+          "nmi": 0.1917,
+          "ari_acak": -0.0001
+        },
+        {
+          "k": 6,
+          "ari": 0.1327,
+          "nmi": 0.2412,
+          "ari_acak": 0.0001
+        },
+        {
+          "k": 7,
+          "ari": 0.1258,
+          "nmi": 0.2551,
+          "ari_acak": 0.0001
+        },
+        {
+          "k": 8,
+          "ari": 0.1089,
+          "nmi": 0.2407,
+          "ari_acak": -0.0001
+        }
+      ],
+      "simclr_gambar vs ae_spektrum": [
+        {
+          "k": 2,
+          "ari": 0.0004,
+          "nmi": 0.0001,
+          "ari_acak": -0.0001
+        },
+        {
+          "k": 3,
+          "ari": -0.0005,
+          "nmi": 0.0002,
+          "ari_acak": 0.0011
+        },
+        {
+          "k": 4,
+          "ari": 0.076,
+          "nmi": 0.1351,
+          "ari_acak": -0.0001
+        },
+        {
+          "k": 5,
+          "ari": 0.1388,
+          "nmi": 0.2552,
+          "ari_acak": -0.0
+        },
+        {
+          "k": 6,
+          "ari": 0.16,
+          "nmi": 0.3058,
+          "ari_acak": -0.0001
+        },
+        {
+          "k": 7,
+          "ari": 0.186,
+          "nmi": 0.3119,
+          "ari_acak": 0.0004
+        },
+        {
+          "k": 8,
+          "ari": 0.2372,
+          "nmi": 0.3984,
+          "ari_acak": 0.0
+        }
+      ]
+    },
+    "metode": {
+      "representasi": "pca_spektrum",
+      "k": 4,
+      "kesesuaian": {
+        "K-Means": {
+          "K-Means": 1.0,
+          "GMM": 0.1521,
+          "Agglomerative (prototipe)": 0.4338
+        },
+        "GMM": {
+          "K-Means": 0.1521,
+          "GMM": 1.0,
+          "Agglomerative (prototipe)": 0.177
+        },
+        "Agglomerative (prototipe)": {
+          "K-Means": 0.4338,
+          "GMM": 0.177,
+          "Agglomerative (prototipe)": 1.0
+        }
+      },
+      "mikroskop": {
+        "K-Means": {
+          "ari": -0.0,
+          "nmi": 0.0,
+          "kemurnian": 0.601,
+          "mayoritas": 0.601,
+          "ukuran_min": 0.2387
+        },
+        "GMM": {
+          "ari": -0.0005,
+          "nmi": 0.0,
+          "kemurnian": 0.601,
+          "mayoritas": 0.601,
+          "ukuran_min": 0.177
+        },
+        "Agglomerative (prototipe)": {
+          "ari": -0.0001,
+          "nmi": 0.0,
+          "kemurnian": 0.601,
+          "mayoritas": 0.601,
+          "ukuran_min": 0.1383
+        }
+      }
+    }
+  }
+}
