@@ -1,0 +1,5 @@
+**1. Menghafal satu batch.** Pada 64 sampel tetap dan 300 langkah (Adam, laju belajar 0.001), kerugian akhir dengan label asli: gambar saja 0,0006 (akurasi 1,000); sensor saja 0,0232 (akurasi 0,984); fusi fitur 0,0001 (akurasi 1,000). Tidak semua model mencapai akurasi 99% pada batch itu; hasil ini perlu diperiksa sebelum mempercayai pelatihan penuh.
+
+**2. Kerugian awal.** Kerugian pada langkah pertama berkisar 1,958 sampai 2,303; nilai acuan ln 7 = 1,946, sehingga bobot awal dan label konsisten.
+
+**3. Kontrol label diacak.** Akurasi batch dengan label diacak: gambar saja 1,000; sensor saja 0,984; fusi fitur 1,000. Hasil ini hanya menunjukkan bahwa kapasitas model cukup untuk menghafal 64 sampel apa pun; kemampuan menghafal label asli bukan bukti kemampuan menggeneralisasi, yang dinilai pada validasi dan tiga seed di notebook final.
