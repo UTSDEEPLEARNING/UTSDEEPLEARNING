@@ -112,3 +112,25 @@ def kesesuaian_modalitas(ea, eb, ks=range(2, 9), seed=0):
         out.append(dict(k=int(k), ari=float(adjusted_rand_score(la, lb)), nmi=float(normalized_mutual_info_score(la, lb)),
                         ari_acak=float(adjusted_rand_score(la, rng.permutation(lb)))))
     return pd.DataFrame(out)
+
+
+def kontribusi_modalitas(lab, refs_g, refs_s):
+    """NMI label terhadap klaster satu-modalitas: rata-rata atas referensi gambar dan atas referensi spektrum."""
+    g = float(np.mean([normalized_mutual_info_score(lab, r) for r in refs_g]))
+    s = float(np.mean([normalized_mutual_info_score(lab, r) for r in refs_s]))
+    return g, s
+
+
+def evaluasi_rep_k(emb, k, mik, refs_g, refs_s, seed=0, n_sil=8000):
+    """Mutu K-Means pada satu k, diagnosis mikroskop, dan seberapa seimbang klaster mewakili gambar dan spektrum."""
+    u, km = ukuran_pada_k(emb, k, mik, seed, n_sil)
+    g, s = kontribusi_modalitas(km.labels_, refs_g, refs_s)
+    u.update(nmi_gambar=g, nmi_spektrum=s, seimbang=min(g, s))
+    return u, km
+
+
+def peringkat_k_tetap(df):
+    """Rerata peringkat pada k tetap: silhouette tinggi, DBI rendah, kestabilan tinggi, keseimbangan modalitas tinggi."""
+    r = pd.DataFrame({'silhouette': df.silhouette.rank(ascending=False), 'dbi': df.dbi.rank(ascending=True),
+                      'kestabilan': df.kestabilan.rank(ascending=False), 'seimbang': df.seimbang.rank(ascending=False)}, index=df.index)
+    return r.mean(1)

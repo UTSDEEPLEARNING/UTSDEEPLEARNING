@@ -1,0 +1,116 @@
+{
+  "k_star": 9,
+  "k_set": [
+    7,
+    9,
+    11
+  ],
+  "gerbang_nmi_mikroskop": 0.05,
+  "calon": [
+    {
+      "representasi": "fusi_simclr_concat",
+      "k": 7,
+      "pusat": "pusat_fusi_simclr_concat_k7.npy",
+      "label": "label_fusi_simclr_concat_k7.npy",
+      "peringkat": 1.5,
+      "silhouette": 0.16399164497852325,
+      "kestabilan": 0.8545287527042714,
+      "seimbang": 0.41123250752852325,
+      "mik_nmi": 0.025464470846261463
+    },
+    {
+      "representasi": "fusi_gabungan",
+      "k": 7,
+      "pusat": "pusat_fusi_gabungan_k7.npy",
+      "label": "label_fusi_gabungan_k7.npy",
+      "peringkat": 3.25,
+      "silhouette": 0.10424075275659561,
+      "kestabilan": 0.845789197571194,
+      "seimbang": 0.34274307655294456,
+      "mik_nmi": 5.2520457332002616e-05
+    },
+    {
+      "representasi": "pca_spektrum",
+      "k": 7,
+      "pusat": "pusat_pca_spektrum_k7.npy",
+      "label": "label_pca_spektrum_k7.npy",
+      "peringkat": 4.25,
+      "silhouette": 0.18204110860824585,
+      "kestabilan": 0.5196498940166734,
+      "seimbang": 0.21156514308445717,
+      "mik_nmi": 4.3285436829018965e-05
+    },
+    {
+      "representasi": "fusi_simclr_concat",
+      "k": 9,
+      "pusat": "pusat_fusi_simclr_concat_k9.npy",
+      "label": "label_fusi_simclr_concat_k9.npy",
+      "peringkat": 1.75,
+      "silhouette": 0.1560724824666977,
+      "kestabilan": 0.9013189064035257,
+      "seimbang": 0.4461303426343206,
+      "mik_nmi": 0.04895712720494241
+    },
+    {
+      "representasi": "fusi_gabungan",
+      "k": 9,
+      "pusat": "pusat_fusi_gabungan_k9.npy",
+      "label": "label_fusi_gabungan_k9.npy",
+      "peringkat": 3.0,
+      "silhouette": 0.08997497707605362,
+      "kestabilan": 0.8871702381560428,
+      "seimbang": 0.4188682419652845,
+      "mik_nmi": 5.603337723056746e-05
+    },
+    {
+      "representasi": "pca_spektrum",
+      "k": 9,
+      "pusat": "pusat_pca_spektrum_k9.npy",
+      "label": "label_pca_spektrum_k9.npy",
+      "peringkat": 3.25,
+      "silhouette": 0.1848040521144867,
+      "kestabilan": 0.717425094120228,
+      "seimbang": 0.2851551549091022,
+      "mik_nmi": 4.80686276979038e-05
+    },
+    {
+      "representasi": "fusi_gabungan",
+      "k": 11,
+      "pusat": "pusat_fusi_gabungan_k11.npy",
+      "label": "label_fusi_gabungan_k11.npy",
+      "peringkat": 2.25,
+      "silhouette": 0.08816832304000854,
+      "kestabilan": 0.779648834011574,
+      "seimbang": 0.4127090543706226,
+      "mik_nmi": 8.575119077434437e-05
+    },
+    {
+      "representasi": "pca_spektrum",
+      "k": 11,
+      "pusat": "pusat_pca_spektrum_k11.npy",
+      "label": "label_pca_spektrum_k11.npy",
+      "peringkat": 2.75,
+      "silhouette": 0.17841115593910217,
+      "kestabilan": 0.6939520137530321,
+      "seimbang": 0.29564926688129384,
+      "mik_nmi": 7.836305274947167e-05
+    },
+    {
+      "representasi": "ae_spektrum",
+      "k": 11,
+      "pusat": "pusat_ae_spektrum_k11.npy",
+      "label": "label_ae_spektrum_k11.npy",
+      "peringkat": 3.25,
+      "silhouette": 0.1184830516576767,
+      "kestabilan": 0.6879104187184767,
+      "seimbang": 0.33770742496568945,
+      "mik_nmi": 4.651136641052893e-05
+    }
+  ],
+  "representasi_paling_sering_teratas": [
+    "fusi_gabungan",
+    "pca_spektrum",
+    "fusi_simclr_concat"
+  ],
+  "seed": 0
+}
