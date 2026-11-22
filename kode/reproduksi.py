@@ -119,6 +119,31 @@ def pastikan_paket():
             subprocess.check_call([sys.executable, '-m', 'pip', '-q', 'install', paket])
 
 
+def alihkan_modul(kerja, data):
+    """Modul .py (data.py, rul_data.py, clu_data.py) memuat jalur bawaan Colab /content/data; alihkan di salinan kerja.
+    Mengembalikan daftar berkas yang diubah."""
+    diubah = []
+    for akar, _, files in os.walk(os.path.join(kerja, 'kode')):
+        for f in files:
+            if not f.endswith('.py') or f == 'reproduksi.py': continue
+            p = os.path.join(akar, f)
+            t = open(p, encoding='utf-8').read()
+            u = t.replace('/content/UTSDEEPLEARNING', kerja).replace('/content/data', data)
+            if u != t:
+                open(p, 'w', encoding='utf-8').write(u); diubah.append(os.path.relpath(p, kerja))
+    return diubah
+
+
+def peringatan_gpu():
+    try:
+        import torch
+    except ImportError:
+        print('PERINGATAN: torch belum terpasang (pip install -r requirements.txt).', flush=True); return
+    if not torch.cuda.is_available():
+        print('PERINGATAN: GPU CUDA tidak tersedia. Notebook pelatihan akan gagal pada pemeriksaan GPU. '
+              'Di Colab: Runtime -> Change runtime type -> T4 GPU, lalu jalankan ulang.', flush=True)
+
+
 def unduh_data(data):
     if all(os.path.exists(os.path.join(data, f)) for f in BERKAS_DATA):
         return
@@ -172,14 +197,20 @@ def main():
             rusak = sintaks_ok(nb)
             masalah += len(sisa) + len(rusak)
             print(f'Task {t}: {p}: {n} sel dijalankan, {lewat} baris/sel khusus Colab diganti, jalur /content tersisa {sisa}, sintaks rusak {rusak}')
+        for akar, _, files in os.walk(os.path.join(repo_asal, 'kode')):
+            for f in files:
+                if f.endswith('.py') and f != 'reproduksi.py' and '/content' in open(os.path.join(akar, f), encoding='utf-8').read():
+                    print(f'modul {os.path.relpath(os.path.join(akar, f), repo_asal)} memuat jalur /content (dialihkan saat dijalankan)')
         print('PERIKSA', 'LULUS' if masalah == 0 else f'ADA {masalah} MASALAH'); return
 
     pastikan_paket()
     import nbformat
     from nbclient import NotebookClient
+    peringatan_gpu()
     unduh_data(data)
     if os.path.exists(kerja): shutil.rmtree(kerja)
     shutil.copytree(repo_asal, kerja, ignore=shutil.ignore_patterns('.git', 'data', '__pycache__', 'hasil_reproduksi'))
+    alihkan_modul(kerja, data)
     for d in FOLDER_KELUARAN: os.makedirs(os.path.join(kerja, d), exist_ok=True)  # pengganti `!mkdir` pada sel yang dilewati
     out = os.path.join(kerja, 'hasil_reproduksi'); os.makedirs(out, exist_ok=True)
     print('Salinan kerja:', kerja, '| data:', data, flush=True)
