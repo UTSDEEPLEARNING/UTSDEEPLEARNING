@@ -1,0 +1,15 @@
+# Versi yang dipakai pada eksperimen (Google Colab): Python 3.13, torch 2.14.1+cu130, numpy 2.4.6,
+# pandas 2.2.3, scikit-learn 1.6.1. Batas bawah di bawah ini cukup untuk menjalankan ulang.
+torch>=2.4
+numpy>=2.0
+pandas>=2.2
+scipy>=1.11
+scikit-learn>=1.5
+matplotlib>=3.8
+umap-learn>=0.5
+gdown>=5.0
+# hanya untuk kode/reproduksi.py (menjalankan ulang notebook secara lokal)
+ipython>=8
+ipykernel>=6
+nbformat>=5
+nbclient>=0.10
