@@ -193,7 +193,7 @@ def main():
         for t, p in daftar:
             nb = json.load(open(os.path.join(repo_asal, p), encoding='utf-8'))
             n, lewat = bersihkan(nb, kerja, data)
-            sisa = [i for i, c in enumerate(nb['cells']) if c.get('cell_type') == 'code' and '/content' in sumber(c)]
+            sisa = [i for i, c in enumerate(nb['cells']) if c.get('cell_type') == 'code' and ('/content/data' in sumber(c) or '/content/UTSDEEPLEARNING' in sumber(c))]
             rusak = sintaks_ok(nb)
             masalah += len(sisa) + len(rusak)
             print(f'Task {t}: {p}: {n} sel dijalankan, {lewat} baris/sel khusus Colab diganti, jalur /content tersisa {sisa}, sintaks rusak {rusak}')
